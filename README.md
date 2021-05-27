@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="src/images/login-img.svg" width="600" title="github-user">
+  <alt="accessibility text">
+</p>
+
 ## Starter Project
 
 - css provided (global styles, styled components)
@@ -31,8 +36,8 @@ export default ReactComponent
 [React Icons - Main Docs](https://react-icons.github.io/react-icons/)
 
 ```jsx
-import { FiUsers, FiUserPlus } from 'react-icons/fi';
-<FiUsers className='nameOfTheClass'> </FiUsers>;
+import { FiUsers, FiUserPlus } from "react-icons/fi";
+<FiUsers className="nameOfTheClass"> </FiUsers>;
 ```
 
 ## React Router Dom
