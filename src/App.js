@@ -7,13 +7,13 @@ function App() {
     <Router>
       <Switch>
         <Route path="/" exact={true}>
-          <Dashboard></Dashboard>
+          <Dashboard />
         </Route>
         <Route path="/login">
           <Login />
         </Route>
-        <Route>
-          <Error path="*" />
+        <Route path="*">
+          <Error />
         </Route>
       </Switch>
     </Router>
