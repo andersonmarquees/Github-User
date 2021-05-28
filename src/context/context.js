@@ -5,7 +5,7 @@ import mockFollowers from "./mockData.js/mockFollowers";
 import axios from "axios";
 
 const rootUrl = "https://api.github.com";
-
+// const url = "https://api.github.com/users/andersonmarquees";
 const GithubContext = React.createContext();
 
 const GithubProvider = ({ children }) => {
