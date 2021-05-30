@@ -12,9 +12,36 @@ const GithubProvider = ({ children }) => {
   const [githubUser, setGithubUser] = useState(mockUser);
   const [repos, setRepos] = useState(mockRepos);
   const [followers, setFollowers] = useState(mockFollowers);
+  const [requests, setRequests] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState({ show: false, msg: "" });
+
+  const checkRequest = () => {
+    axios(`${rootUrl}/rate_limit`)
+      .then(({ data }) => {
+        let {
+          rate: { remaining },
+        } = data;
+        setRequests(remaining);
+        if (remaining === 0) {
+          toggleError(true, "sorry you exceeded your hourly rate limit!");
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const toggleError = (show = false, msg = "") => {
+    setError({ show, msg });
+  };
+
+  useEffect(() => {
+    checkRequest();
+  }, []);
 
   return (
-    <GithubContext.Provider value={{ githubUser, repos, followers }}>
+    <GithubContext.Provider
+      value={{ githubUser, repos, followers, requests, error }}
+    >
       {children}
     </GithubContext.Provider>
   );
