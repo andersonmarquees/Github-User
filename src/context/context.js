@@ -64,7 +64,7 @@ const GithubProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    checkRequest();
+    checkRequest(); // eslint-disable-next-line
   }, []);
 
   return (
